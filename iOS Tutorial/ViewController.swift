@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBAction func enableDarkMode(_ sender: AnyObject) {
         view.backgroundColor = UIColor.darkGray;
         
-        let childViews = view.subviews
+        let childViews = view.subviews[0].subviews
         
         for view in childViews {
             if view is UILabel {
