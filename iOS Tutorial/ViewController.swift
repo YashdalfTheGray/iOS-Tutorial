@@ -32,6 +32,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         "Test smoke alarms"
     ]
     
+    @IBAction func toggleDarkMode(_ sender: AnyObject) {
+        let darkModeSwitch = sender as! UISwitch
+        
+        if darkModeSwitch.isOn {
+            view.backgroundColor = UIColor.darkGray
+        }
+        else {
+            view.backgroundColor = UIColor.white
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

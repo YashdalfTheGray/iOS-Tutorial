@@ -27,7 +27,16 @@
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekT-ue-4mF">
                                 <items>
-                                    <barButtonItem title="Item" id="Eic-Ps-gxo"/>
+                                    <barButtonItem style="plain" id="11a-3S-KpF">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="5NL-yY-8s1">
+                                            <rect key="frame" x="16" y="7" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="toggleDarkMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="dDh-hl-hqk"/>
+                                            </connections>
+                                        </switch>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" title="Dark Mode" id="Eic-Ps-gxo"/>
                                 </items>
                             </toolbar>
                         </subviews>
