@@ -44,6 +44,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        // this seems like a side effect
+        tableView.backgroundColor = UIColor.clear
+        
         return 3
     }
     
@@ -76,6 +79,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         cell.textLabel!.text = currentTask
+        cell.backgroundColor = UIColor.clear
+        
         return cell
     }
     
