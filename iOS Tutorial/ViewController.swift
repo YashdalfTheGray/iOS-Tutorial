@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     ]
     
     let weeklyTasks = [
-        Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: false, lastCompleted: nil),
+        Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: true, lastCompleted: nil),
         Task(name: "Run all faucets for 30 seconds", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Walk the perimiter of the property", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Arrange for dumpster pickup", type: .Weekly, completed: false, lastCompleted: nil)
@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let biweeklyTasks = [
         Task(name: "Run test on security alarm", type: .Biweekly, completed: false, lastCompleted: nil),
         Task(name: "Check all motion detectors", type: .Biweekly, completed: false, lastCompleted: nil),
-        Task(name: "Test smoke alarms", type: .Biweekly, completed: false, lastCompleted: nil),
+        Task(name: "Test smoke alarms", type: .Biweekly, completed: true, lastCompleted: nil),
     ]
     
     @IBAction func toggleDarkMode(_ sender: AnyObject) {
@@ -81,6 +81,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.textLabel!.text = currentTask.name
         cell.backgroundColor = UIColor.clear
+        
+        if currentTask.completed {
+            cell.textLabel?.textColor = UIColor.lightGray
+            cell.accessoryType = .checkmark
+        }
+        else {
+            cell.textLabel?.textColor = UIColor.black
+            cell.accessoryType = .none
+        }
         
         return cell
     }
