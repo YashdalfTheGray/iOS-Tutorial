@@ -13,6 +13,7 @@
 		D3C5543D1DA062D400B99EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C5543C1DA062D400B99EAE /* Assets.xcassets */; };
 		D3C554401DA062D400B99EAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C5543E1DA062D400B99EAE /* LaunchScreen.storyboard */; };
 		D3C5544B1DA062D400B99EAE /* iOS_TutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C5544A1DA062D400B99EAE /* iOS_TutorialTests.swift */; };
+		D3C554561DA4FABF00B99EAE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C554551DA4FABF00B99EAE /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D3C554461DA062D400B99EAE /* iOS TutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS TutorialTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C5544A1DA062D400B99EAE /* iOS_TutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TutorialTests.swift; sourceTree = "<group>"; };
 		D3C5544C1DA062D400B99EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3C554551DA4FABF00B99EAE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D3C5543C1DA062D400B99EAE /* Assets.xcassets */,
 				D3C5543E1DA062D400B99EAE /* LaunchScreen.storyboard */,
 				D3C554411DA062D400B99EAE /* Info.plist */,
+				D3C554551DA4FABF00B99EAE /* Task.swift */,
 			);
 			path = "iOS Tutorial";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3C554381DA062D400B99EAE /* ViewController.swift in Sources */,
+				D3C554561DA4FABF00B99EAE /* Task.swift in Sources */,
 				D3C554361DA062D400B99EAE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +416,7 @@
 				D3C554511DA062D400B99EAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3C554521DA062D400B99EAE /* Build configuration list for PBXNativeTarget "iOS TutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				D3C554541DA062D400B99EAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

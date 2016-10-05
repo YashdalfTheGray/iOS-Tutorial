@@ -11,25 +11,25 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let dailyTasks = [
-        "Check all windows",
-        "Check all doors",
-        "If it's freezing, check the water pipes outside",
-        "Check the mailbox at the end of the lane",
-        "Empty trash containers",
-        "Check temperature in public areas"
+        Task(name: "Check all windows", type: .Daily, completed: false, lastCompleted: nil),
+        Task(name: "Check all doors", type: .Daily, completed: false, lastCompleted: nil),
+        Task(name: "If it's freezing, check the water pipes outside", type: .Daily, completed: false, lastCompleted: nil),
+        Task(name: "Check the mailbox at the end of the lane", type: .Daily, completed: false, lastCompleted: nil),
+        Task(name: "Empty trash containers", type: .Daily, completed: false, lastCompleted: nil),
+        Task(name: "Check temperature in public areas", type: .Daily, completed: false, lastCompleted: nil)
     ]
     
     let weeklyTasks = [
-        "Check inside all unoccupied cabins",
-        "Run all faucets for 30 seconds",
-        "Walk the perimiter of the property",
-        "Arrange for dumpster pickup"
+        Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: false, lastCompleted: nil),
+        Task(name: "Run all faucets for 30 seconds", type: .Weekly, completed: false, lastCompleted: nil),
+        Task(name: "Walk the perimiter of the property", type: .Weekly, completed: false, lastCompleted: nil),
+        Task(name: "Arrange for dumpster pickup", type: .Weekly, completed: false, lastCompleted: nil)
     ]
     
     let biweeklyTasks = [
-        "Run test on security alarm",
-        "Check all motion detectors",
-        "Test smoke alarms"
+        Task(name: "Run test on security alarm", type: .Biweekly, completed: false, lastCompleted: nil),
+        Task(name: "Check all motion detectors", type: .Biweekly, completed: false, lastCompleted: nil),
+        Task(name: "Test smoke alarms", type: .Biweekly, completed: false, lastCompleted: nil),
     ]
     
     @IBAction func toggleDarkMode(_ sender: AnyObject) {
@@ -66,7 +66,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        var currentTask: String
+        var currentTask: Task!
+        
         switch indexPath.section {
         case 0:
             currentTask = dailyTasks[indexPath.row]
@@ -75,10 +76,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         case 2:
             currentTask = biweeklyTasks[indexPath.row]
         default:
-            currentTask = ""
+            break
         }
         
-        cell.textLabel!.text = currentTask
+        cell.textLabel!.text = currentTask.name
         cell.backgroundColor = UIColor.clear
         
         return cell
