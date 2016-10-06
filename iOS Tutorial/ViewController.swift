@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let dailyTasks = [
+    var dailyTasks = [
         Task(name: "Check all windows", type: .Daily, completed: false, lastCompleted: nil),
         Task(name: "Check all doors", type: .Daily, completed: false, lastCompleted: nil),
         Task(name: "If it's freezing, check the water pipes outside", type: .Daily, completed: false, lastCompleted: nil),
@@ -19,14 +19,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         Task(name: "Check temperature in public areas", type: .Daily, completed: false, lastCompleted: nil)
     ]
     
-    let weeklyTasks = [
+    var weeklyTasks = [
         Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: true, lastCompleted: nil),
         Task(name: "Run all faucets for 30 seconds", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Walk the perimiter of the property", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Arrange for dumpster pickup", type: .Weekly, completed: false, lastCompleted: nil)
     ]
     
-    let biweeklyTasks = [
+    var biweeklyTasks = [
         Task(name: "Run test on security alarm", type: .Biweekly, completed: false, lastCompleted: nil),
         Task(name: "Check all motion detectors", type: .Biweekly, completed: false, lastCompleted: nil),
         Task(name: "Test smoke alarms", type: .Biweekly, completed: true, lastCompleted: nil),
@@ -109,6 +109,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.gray
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .default, title: "Complete", handler: {
+            action, indexPath in
+            
+            switch indexPath.section {
+            case 0:
+                self.dailyTasks[indexPath.row].completed = true
+            case 1:
+                self.weeklyTasks[indexPath.row].completed = true
+            case 2:
+                self.biweeklyTasks[indexPath.row].completed = true
+            default:
+                break
+            }
+            
+            tableView.reloadData()
+            
+            tableView.isEditing = false
+        })
+        
+        return [action]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
