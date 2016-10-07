@@ -38,6 +38,12 @@
                                         </switch>
                                     </barButtonItem>
                                     <barButtonItem enabled="NO" title="Dark Mode" id="Eic-Ps-gxo"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="avc-Ih-c8N"/>
+                                    <barButtonItem title="Reset" id="LEF-Da-fAI">
+                                        <connections>
+                                            <action selector="resetTableView:" destination="BYZ-38-t0r" id="oun-Nz-Vve"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -52,6 +58,9 @@
                             <constraint firstAttribute="trailing" secondItem="l74-Aw-7Rf" secondAttribute="trailing" id="o8O-a3-FmT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="taskTableView" destination="l74-Aw-7Rf" id="8ZT-0b-P8U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

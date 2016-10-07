@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     ]
     
     var weeklyTasks = [
-        Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: true, lastCompleted: nil),
+        Task(name: "Check inside all unoccupied cabins", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Run all faucets for 30 seconds", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Walk the perimiter of the property", type: .Weekly, completed: false, lastCompleted: nil),
         Task(name: "Arrange for dumpster pickup", type: .Weekly, completed: false, lastCompleted: nil)
@@ -29,8 +29,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var biweeklyTasks = [
         Task(name: "Run test on security alarm", type: .Biweekly, completed: false, lastCompleted: nil),
         Task(name: "Check all motion detectors", type: .Biweekly, completed: false, lastCompleted: nil),
-        Task(name: "Test smoke alarms", type: .Biweekly, completed: true, lastCompleted: nil),
+        Task(name: "Test smoke alarms", type: .Biweekly, completed: false, lastCompleted: nil),
     ]
+    
+    @IBOutlet weak var taskTableView: UITableView!
+    
+    @IBAction func resetTableView(_ sender: AnyObject) {
+        for i in 0..<dailyTasks.count {
+            dailyTasks[i].completed = false
+        }
+        for i in 0..<weeklyTasks.count {
+            weeklyTasks[i].completed = false
+        }
+        for i in 0..<biweeklyTasks.count {
+            biweeklyTasks[i].completed = false
+        }
+        
+        taskTableView.reloadData()
+    }
     
     @IBAction func toggleDarkMode(_ sender: AnyObject) {
         let darkModeSwitch = sender as! UISwitch
