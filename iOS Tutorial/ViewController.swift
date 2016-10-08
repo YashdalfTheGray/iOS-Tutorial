@@ -35,17 +35,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var taskTableView: UITableView!
     
     @IBAction func resetTableView(_ sender: AnyObject) {
-        for i in 0..<dailyTasks.count {
-            dailyTasks[i].completed = false
-        }
-        for i in 0..<weeklyTasks.count {
-            weeklyTasks[i].completed = false
-        }
-        for i in 0..<biweeklyTasks.count {
-            biweeklyTasks[i].completed = false
-        }
+        let confirm = UIAlertController(title: "Reset List", message: "Are you sure you want to reset the list?", preferredStyle: .alert)
         
-        taskTableView.reloadData()
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: {
+            action in
+            
+            for i in 0..<self.dailyTasks.count {
+                self.dailyTasks[i].completed = false
+            }
+            for i in 0..<self.weeklyTasks.count {
+                self.weeklyTasks[i].completed = false
+            }
+            for i in 0..<self.biweeklyTasks.count {
+                self.biweeklyTasks[i].completed = false
+            }
+            
+            self.taskTableView.reloadData()
+        })
+        
+        let noAction = UIAlertAction(title: "No", style: .default, handler: {
+            action in
+            print("That was a close one!")
+        })
+        
+        confirm.addAction(yesAction)
+        confirm.addAction(noAction)
+        
+        present(confirm, animated: true, completion: nil)
     }
     
     @IBAction func toggleDarkMode(_ sender: AnyObject) {
